@@ -243,6 +243,8 @@ jobs:
           #   now_line        - vertical "now" line on charts (drop this line for Loop 3.15+)
           #   meal_days       - show 2 days of meal history
           #   profiles        - save and load named therapy-setting profiles
+          #   remote_carb_edit - LoopFollow can edit/delete carbs Loop logged in the last 24h (needs LoopFollow 8.0+)
+          #   2hlollipop      - fast (lollipop) carb absorption default 2 hours instead of 30 minutes
           # The "\" is a continuation character; the last line must not end with one
           /bin/bash -c "$(curl -fsSL \
             https://raw.githubusercontent.com/loopandlearn/lnl-scripts/main/CustomizationSelect.sh)" \
@@ -250,7 +252,9 @@ jobs:
             override_sens \
             now_line \
             meal_days \
-            profiles
+            profiles \
+            remote_carb_edit \
+            2hlollipop
 
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
