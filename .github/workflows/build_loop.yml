@@ -236,6 +236,22 @@ jobs:
           # Several patches may be added per submodule.
           # Adding comments (#) may be useful to easily tell the individual patches apart.
 
+          # Loop and Learn customizations recommended for new Loopers
+          # https://www.loopandlearn.org/customizations-for-new-loopers/
+          #   future_carbs_4h - allow carb entries up to 4 hours in the future
+          #   override_sens   - Override Insulin Needs picker, 50% to 200% in 5% steps
+          #   now_line        - vertical "now" line on charts (drop this line for Loop 3.15+)
+          #   meal_days       - show 2 days of meal history
+          #   profiles        - save and load named therapy-setting profiles
+          # The "\" is a continuation character; the last line must not end with one
+          /bin/bash -c "$(curl -fsSL \
+            https://raw.githubusercontent.com/loopandlearn/lnl-scripts/main/CustomizationSelect.sh)" \
+            future_carbs_4h \
+            override_sens \
+            now_line \
+            meal_days \
+            profiles
+
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
         run: |
